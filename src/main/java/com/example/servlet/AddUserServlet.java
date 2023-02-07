@@ -32,6 +32,7 @@ public class AddUserServlet extends HttpServlet {
         User user = new User(firstName, lastName);
         Warehouse warehouse = Warehouse.getInstance();
         warehouse.addUser(user);
+        req.setAttribute("user", user);
         try {
             resp.sendRedirect("/add");
         } catch (IOException e) {
